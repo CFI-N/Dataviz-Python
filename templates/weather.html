@@ -1,0 +1,31 @@
+{{weather | safe}}
+
+<style>
+    svg{
+        width: 100vw;
+        height: 100vh;
+        position:fixed;
+        top: 0;
+        left: 0;
+    }
+    .path{
+        animation: 5s normal rainbow-fill;
+    }
+    @keyframes rainbow-fill {
+        0%{
+            fill:red;
+        }
+        25%{
+            fill:orange;
+        }
+        50%{
+            fill:greenyellow
+        }
+        75%{   
+            fill: cyan
+        }
+        100%{
+            fill:purple
+        }
+    }
+</style>
