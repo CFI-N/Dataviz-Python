@@ -1,6 +1,20 @@
+<h1>Temperature dans la ville de paris des 7 derniers jours.</h1>
+<p>Source: <a href="https://infoclimat.fr">infoclimat.fr</a></p>
 {{weather | safe}}
 
 <style>
+    h1{
+        position: relative;
+        z-index: 1000;
+        text-align: center;
+        margin: 0;
+        margin-block: 0;
+    }
+    p {
+        text-align: center;
+        position: relative;
+        z-index: 1000;
+    }
     svg{
         width: 100vw;
         height: 100vh;

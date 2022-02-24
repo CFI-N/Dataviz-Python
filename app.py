@@ -3,6 +3,7 @@ import matplotlib
 import matplotlib.pyplot as pplot
 import numpy as np
 import requests
+from datetime import datetime
 
 from env import WEATHER_URL_API
 
@@ -24,9 +25,10 @@ def temp_paris():
     for date in api_data:
         if "2022" in date:
             if "13:00:00" in date:
-                parse_date = date.replace("2022-", "").replace("13:00:00", "")
+                date_time = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
+                parse_date = date_time.strftime("%a, %d \n%Hh")
                 temperature_date.append(parse_date)
-                parse_temp = api_data[date]["temperature"]["sol"] - 272.15
+                parse_temp = api_data[date]["temperature"]["sol"] - 272.15  
                 temperature.append(parse_temp)
             
     if temperature and temperature_date != []:
@@ -40,6 +42,6 @@ def temp_paris():
 
 
 def draw_graph(data:tuple) -> str:
+    pplot.ylabel("°C")
     pplot.bar(data[1], data[0])
-    pplot.show()
     pplot.savefig("static/data.svg")
